@@ -12,3 +12,4 @@ public abstract  class Case {
     }
     public abstract void pressPowerButton();
 }
+
