@@ -1,9 +1,14 @@
 package com.cydeo.stereotype_annotation.monitorfactory;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+@Primary
 public class SonyMonitor extends Monitor {
 
-    public SonyMonitor(String model, String manufacturer, int size) {
-        super(model, manufacturer, size);
+    public SonyMonitor() {
+        super("25 inch beast","Sony", 25 );
     }
 
     @Override

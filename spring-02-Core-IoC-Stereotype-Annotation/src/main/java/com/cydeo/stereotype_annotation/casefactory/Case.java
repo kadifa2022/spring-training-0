@@ -2,7 +2,9 @@ package com.cydeo.stereotype_annotation.casefactory;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
 
+@Component
 @Setter
 @Getter
 public abstract class Case {

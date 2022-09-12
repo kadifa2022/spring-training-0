@@ -5,8 +5,8 @@ import jdk.swing.interop.SwingInterOpUtils;
 public class AsusMotherboard extends Motherboard {
 
 
-    public AsusMotherboard(String model, String manufacturer, int ramSlot, int cardSlot, String bios) {
-        super(model, manufacturer, ramSlot, cardSlot, bios);
+    public AsusMotherboard() {
+        super("BJ-200", "Asus", 4,6,"v2.44");
     }
 
     @Override
