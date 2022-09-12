@@ -1,4 +1,21 @@
 package com.cydeo.stereotype_annotation.monitorfactory;
 
-public class Monitor {
+import lombok.Getter;
+import lombok.Setter;
+
+public  abstract class Monitor {
+
+    @Setter
+    @Getter
+    private String model;
+    private String manufacturer;
+    private int size;
+
+    public Monitor(String model, String manufacturer, int size) {
+        this.model = model;
+        this.manufacturer = manufacturer;
+        this.size = size;
+    }
+
+    public abstract void drawPixelAt();
 }
