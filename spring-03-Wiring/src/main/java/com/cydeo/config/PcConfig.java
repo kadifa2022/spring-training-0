@@ -12,10 +12,10 @@ public class PcConfig {
 
     @Bean
     public Dimensions dimensions(){
-        return new Dimensions(50,10,10);
-    }
+        return new Dimensions(50,10,10);}
+    //tightly coupled// Wiring not good example IoC Needs to handle this
     @Bean
-    public Case caseDell(Dimensions dimensions){
+    public Case caseDell(Dimensions dimensions){ //wiring
         return new DellCase("220B","Dell", "240",dimensions);
     }
 
