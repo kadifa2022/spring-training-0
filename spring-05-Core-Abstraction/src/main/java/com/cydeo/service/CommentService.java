@@ -3,14 +3,19 @@ package com.cydeo.service;
 import com.cydeo.model.Comment;
 import com.cydeo.proxy.CommentNotificationProxy;
 import com.cydeo.repository.CommentRepository;
-import com.cydeo.repository.DBCommentRepository;
+
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
+//autowiring is done through constructors
 
 @Component
 public class CommentService {//interface is use because of loose coupling -implementation can change through abstract
-    private final CommentRepository commentRepository;//dev.put final because  if of reminding us --good practice
+    private final CommentRepository commentRepository;//dev.put final because  if of reminding to put constructors because of autowiring
     private final CommentNotificationProxy commentNotificationProxy;
-    public CommentService(CommentRepository commentRepository, CommentNotificationProxy commentNotificationProxy) {
+
+    //CONSTRUCTOR USED INSTEAD OF @Autowiring                        //default bin name
+    public CommentService(CommentRepository commentRepository, @Qualifier("EMAIL") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
     }
