@@ -23,7 +23,7 @@ public class CommentApp {
         System.out.println(cs1);
         System.out.println(cs2);
 
-        //same object with default singleton -Scope type
+        //same object with templates singleton -Scope type
         System.out.println(cs1==cs2);
 
 
