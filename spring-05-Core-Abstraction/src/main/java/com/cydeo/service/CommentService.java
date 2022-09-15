@@ -14,7 +14,7 @@ public class CommentService {//interface is use because of loose coupling -imple
     private final CommentRepository commentRepository;//dev.put final because  if of reminding to put constructors because of autowiring
     private final CommentNotificationProxy commentNotificationProxy;
 
-    //CONSTRUCTOR USED INSTEAD OF @Autowiring                        //default bin name
+    //CONSTRUCTOR USED INSTEAD OF @Autowiring                        //templates bin name
     public CommentService(CommentRepository commentRepository, @Qualifier("EMAIL") CommentNotificationProxy commentNotificationProxy) {
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
