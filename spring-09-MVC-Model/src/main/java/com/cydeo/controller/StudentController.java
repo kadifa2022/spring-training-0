@@ -13,8 +13,9 @@ import java.util.Random;
 @Controller
 public class StudentController {
     @RequestMapping("/welcome")
+    public String homePage(Model model){//parameter to execute methode to belong  model Interface
+        String name="Ozzy";
 
-    public String homePage(Model model){
 
 
         model.addAttribute("name","Cydeo");
@@ -23,7 +24,7 @@ public class StudentController {
         model.addAttribute("Subject", subject);
         int studentId=new Random().nextInt();
         model.addAttribute("id",studentId);
-
+        // collection
         List<Integer> numbers=new ArrayList<>();
         numbers.add(3);
         numbers.add(5);
@@ -33,7 +34,7 @@ public class StudentController {
 
         LocalDate dt=LocalDate.now();
         model.addAttribute("date",dt);
-
+            //class -create object from Student class
         Student student = new Student(1,"Mike", "Schmidt");
         model.addAttribute("student", student);
 
