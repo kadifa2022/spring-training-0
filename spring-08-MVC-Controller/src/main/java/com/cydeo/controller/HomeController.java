@@ -18,7 +18,7 @@ public class HomeController {//create class with controller
         return "home.html";
     }
 
-    @RequestMapping // nothing and /
+    @RequestMapping // nothing and / default configuration
     public String getHomePage3(){
         return "home.html";
     }

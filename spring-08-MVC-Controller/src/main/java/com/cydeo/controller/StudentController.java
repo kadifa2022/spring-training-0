@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class StudentController {
     @RequestMapping("/student")
     public String getStudentInfo(){
-        return "student/welcome.html";
+        return "student/welcome.html";//if is in folder we need to put folder first/html
     }
 }

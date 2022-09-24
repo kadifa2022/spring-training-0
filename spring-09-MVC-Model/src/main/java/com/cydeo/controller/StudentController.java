@@ -28,6 +28,7 @@ public class StudentController {
         numbers.add(3);
         numbers.add(5);
         numbers.add(7);
+        numbers.add(8);
         model.addAttribute("numbers", numbers);
 
         LocalDate dt=LocalDate.now();
