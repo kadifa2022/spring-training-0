@@ -12,9 +12,9 @@ public class MentorController {
     //localhost:8080/mentor/register
     @RequestMapping("register")
     public String register(Model model){
-      //  model.addAttribute("students", DataGenerator.createStudent());
+       model.addAttribute("mentors", DataGenerator.createStudent());
 
-        return"student/register";
+        return"mentors/register";
     }
 
     @RequestMapping("/drop")//localhost:8080/mentor/drop
