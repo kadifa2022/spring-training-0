@@ -18,8 +18,8 @@ import java.util.List;
 public class CarController {
     @GetMapping("/register")
     public String register(Model model){
-        List<String> carYear= Arrays.asList("2000-2006", "2007-2012", "2013-2017","2018-2022" );
-        model.addAttribute("carYear",carYear);
+        List<String> yearList= Arrays.asList("2000-2006", "2007-2012", "2013-2017","2018-2022" );
+        model.addAttribute("yearList", yearList);
         model.addAttribute("car", new Car());
 
         return "car/car-register";
