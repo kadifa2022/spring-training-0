@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Car {
     private String name;
     private String model;
-    private int year;
+    private String year;
     private String color;
 
 }
