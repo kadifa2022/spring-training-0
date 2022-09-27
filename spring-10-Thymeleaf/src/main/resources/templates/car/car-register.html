@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<div align="center">
+    <img th:src="@{/images/car-image.jpeg}"><br><br><br>
+</div>
+
+
+</head>
+<body>
+<div align="center">
+
+  <form th:action="@{/car/confirm}" mehod="post" th:object="${car}">
+      <label> Car Name:</label>
+      <input type="text" th:field="*{name}"><br><br>
+
+      <label> Car Model:</label>
+      <input type="text" th:field="*{model}"><br><br>
+
+
+      <label> Car Color:</label>
+      <input type="text" th:field="*{color}"><br><br>
+  </form>
+
+    <label>Car Year:</label>
+    <select th:field="*{car}">
+        <option th:each = "theYear : ${yearList}" th:value="${theYear}" th:text="${theYear}" ></option>
+    </select><br><br>
+
+    <button type="submit">Register</button>
+
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
