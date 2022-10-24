@@ -23,9 +23,13 @@ public class Payment {
     @Enumerated(EnumType.STRING)
    private Status paymentStatus;
 
-    @OneToOne(cascade=CascadeType.ALL)//business logic
+   //@OneToOne(cascade=CascadeType.ALL)//business logic
+     @OneToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name="payment_detail_id")//to change column join the column
     private PaymentDetail paymentDetail;//spring is creating auto
+
+    @ManyToOne
+    private Merchant merchant;
 
     public Payment(LocalDate createdDate, BigDecimal amount, Status paymentStatus) {
         this.createdDate = createdDate;
