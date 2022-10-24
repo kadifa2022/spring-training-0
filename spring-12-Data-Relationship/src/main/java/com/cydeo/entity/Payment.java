@@ -22,9 +22,10 @@ public class Payment {
     private BigDecimal amount;
     @Enumerated(EnumType.STRING)
    private Status paymentStatus;
-    @OneToOne//business logic
+
+    @OneToOne(cascade=CascadeType.ALL)//business logic
     @JoinColumn(name="payment_detail_id")//to change column join the column
-    private PaymentDetail paymentDetail;
+    private PaymentDetail paymentDetail;//spring is creating auto
 
     public Payment(LocalDate createdDate, BigDecimal amount, Status paymentStatus) {
         this.createdDate = createdDate;
