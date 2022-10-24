@@ -22,7 +22,12 @@ public class DataGenerator implements CommandLineRunner {
         Car c2 = new Car("Honda", "Civic");
         Car c3 = new Car("Toyota", "Corolla");
 
+
         // i want to save c1,c3
+
+        carRepository.save(c1);
+        carRepository.save(c2);
+        carRepository.save(c3);
 
 
     }
