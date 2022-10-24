@@ -6,17 +6,26 @@ import com.cydeo.entity.Department;
 import com.cydeo.entity.Employee;
 import com.cydeo.enums.Gender;
 import com.cydeo.repository.CarRepository;
+import com.cydeo.repository.DepartmentRepository;
+import com.cydeo.repository.EmployeeRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class DataGenerator implements CommandLineRunner {
     private final CarRepository carRepository;//DI
+    private final EmployeeRepository employeeRepository;
+    private final DepartmentRepository departmentRepository;
 
-    public DataGenerator(CarRepository carRepository) {
+    public DataGenerator(CarRepository carRepository, EmployeeRepository employeeRepository, DepartmentRepository departmentRepository) {
         this.carRepository = carRepository;
+        this.employeeRepository = employeeRepository;
+        this.departmentRepository = departmentRepository;
     }
 
 
@@ -34,6 +43,9 @@ public class DataGenerator implements CommandLineRunner {
         carRepository.save(c2);
         carRepository.save(c3);
 
+        List<Employee> employeeList= new ArrayList<>();
+        List<Department> departmentList = new ArrayList<>();
+
         Employee e1 = new Employee("Berrie", "Manueau", "bmanueau0@dion.ne.jp", LocalDate.of(2006,04,20), Gender.FEMALE, 2500);
         Employee e2 = new Employee("Aeriell", "McNee", "amcnee1@google.es", LocalDate.of(2009,01,26),Gender.FEMALE, 2500);
         Employee e3 = new Employee("Sydney", "Symonds", "ssymonds2@hhs.gov", LocalDate.of(2010,05,17), Gender.FEMALE, 2500);
@@ -46,7 +58,12 @@ public class DataGenerator implements CommandLineRunner {
         Department d4 = new Department("Phones & Tablets", "Electronics");
         Department d5 = new Department("Computers", "Electronics");
 
+        employeeList.addAll(Arrays.asList(e1,e2,e3,e4,e5));
+        departmentList.addAll(Arrays.asList(d1,d2,d3,d4,d5));
 
+        // new methods
+        employeeRepository.saveAll(employeeList);
+        departmentRepository.saveAll(departmentList);
 
 
 
