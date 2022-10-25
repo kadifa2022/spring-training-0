@@ -23,10 +23,13 @@ public class Payment {
     @Enumerated(EnumType.STRING)
    private Status paymentStatus;
 
-   //@OneToOne(cascade=CascadeType.ALL)//business logic
-     @OneToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name="payment_detail_id")//to change column join the column
-    private PaymentDetail paymentDetail;//spring is creating auto
+   //@OneToOne(cascade=CascadeType.ALL)//saving, deleting or any other action in parent object - child objects will be the same action
+     @OneToOne(cascade={CascadeType.PERSIST, CascadeType.MERGE})//saving, deleting or any other action in parent object
+    @JoinColumn(name="payment_detail_id")//foreign key created//bidirectional and uni-direct
+    private PaymentDetail paymentDetail;//is another object
+
+    @ManyToOne
+    private Costumer customer;
 
     @ManyToOne
     private Merchant merchant;
