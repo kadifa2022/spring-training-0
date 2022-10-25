@@ -4,7 +4,7 @@ import com.cydeo.enums.UserRole;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.management.relation.Role;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -24,6 +24,6 @@ public class Account extends BaseEntity{
     private String postalCode;
     @Enumerated(EnumType.STRING)
     private UserRole role;
-    @OneToOne(mappedBy = "account")
+    @OneToOne(mappedBy = "account")//to drop foreign key in account table
     private User user;
 }
