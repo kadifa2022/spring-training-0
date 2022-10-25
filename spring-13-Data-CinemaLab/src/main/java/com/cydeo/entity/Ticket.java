@@ -2,7 +2,7 @@ package com.cydeo.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
