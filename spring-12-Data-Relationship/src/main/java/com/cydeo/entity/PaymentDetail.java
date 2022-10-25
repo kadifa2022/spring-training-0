@@ -7,11 +7,11 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+
 @Entity
-@Table(name="paymentDetails")
 @NoArgsConstructor
 @Data
-
+@Table(name="paymentDetails")
 public class PaymentDetail {
 
     @Id
@@ -23,9 +23,9 @@ public class PaymentDetail {
     @Column(columnDefinition = "DATE")
     private LocalDate payoutDate;
 
-    @OneToOne(mappedBy = "paymentDetail")
+    @OneToOne(mappedBy = "paymentDetail")//drop foreign key inside table (do not create any foreign key) bidirectional
     private Payment payment;//what kind odf relation we have
-
+//create AllArgsConstructor without ID-id const will be created by postgres
     public PaymentDetail(BigDecimal merchantPayoutAmount, BigDecimal commissionAmount, LocalDate payoutDate) {
         this.merchantPayoutAmount = merchantPayoutAmount;
         this.commissionAmount = commissionAmount;
