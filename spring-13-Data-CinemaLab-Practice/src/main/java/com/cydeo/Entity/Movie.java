@@ -13,7 +13,7 @@ import java.util.List;
 @Entity//to create table
 @Data//lombok
 @NoArgsConstructor
-public class Movie extends BaseEntity{  //red-looking dor primary key
+public class Movie extends BaseEntity{  //red-looking for primary key
 
     private String name;
     @Column(columnDefinition="DATE")//To show date

@@ -21,8 +21,8 @@ public class Account extends BaseEntity{
     private String postalCode;
     @Enumerated(EnumType.STRING)
     private UserRole role;
-   // spring is trying to put foreign key that's why we are mappingBY
-    @OneToOne(mappedBy = "account")//sp
+   // spring is trying to put foreign key by default that's why we are mappingBY
+    @OneToOne(mappedBy = "account")
     private User user;
 
 
