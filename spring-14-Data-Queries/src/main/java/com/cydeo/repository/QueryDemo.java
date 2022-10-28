@@ -21,7 +21,7 @@ public class QueryDemo implements CommandLineRunner {
                                     //using squel with methods that we created
 
 
-        System.out.println("--------------------Region---------------------------");
+        System.out.println("-----------------------------Region------------------------------");
 
         System.out.println("findByCountry: " + regionRepository.findByCountry("Canada"));
         System.out.println("getByCountry: " + regionRepository.getByCountry("Canada"));
@@ -32,13 +32,16 @@ public class QueryDemo implements CommandLineRunner {
         System.out.println("findTop2ByCountry: " + regionRepository.findTop2ByCountry("United State"));
 
 
-        System.out.println("---------------------Departments------------------------------");
+        System.out.println("---------------------------Departments---------------------------------");
         System.out.println("FindByDepartment:" + departmentRepository.findByDepartment("Furniture"));
         System.out.println("findByDivision" + departmentRepository.findByDivision("Health"));
         System.out.println("findByDivisionEndsWith:" + departmentRepository.findByDivisionEndsWith("ics") );
+        System.out.println("findDistinctTop3ByDivisionContains:"+ departmentRepository.findDistinctTop3ByDivisionContains("Hea"));
+
+        System.out.println("----------------------------Employees----------------------------------");
 
 
-      System.out.println("findDistinctTop3ByDivisionContains:"+ departmentRepository.findDistinctTop3ByDivisionContains("Hea"));
+
     }
 
 
