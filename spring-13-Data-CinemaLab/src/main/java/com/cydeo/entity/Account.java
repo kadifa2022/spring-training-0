@@ -2,7 +2,9 @@ package com.cydeo.entity;
 
 import com.cydeo.enums.UserRole;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 import javax.persistence.*;
@@ -24,4 +26,5 @@ public class Account extends BaseEntity{
     private UserRole role;
     @OneToOne(mappedBy = "account")//to drop foreign key in account table
     private User user;
+
 }
