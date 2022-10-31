@@ -14,7 +14,7 @@ public class QueryDemo implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-     //   System.out.println(" findByCountry: " +  AccountRepository.findByCountry("United States"));
-
+       System.out.println("findAllByCountryOrState: " +  accountRepository.findAllByCountryOrState("United States", "California"));
+        System.out.println("findAllByAgeLessThanEqual:" +accountRepository.findAllByAgeLessThanEqual(40));
     }
 }
