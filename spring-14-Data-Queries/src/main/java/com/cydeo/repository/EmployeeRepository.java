@@ -92,8 +92,12 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     List<Employee> retrieveEmployeeDetailBySalary(int salary);
 
     //Named Parameter--based on name positional
+
     @Query("SELECT e FROM Employee e WHERE e.salary=:salary")
     List<Employee> retrieveEmployeeSalary(@Param("salary") int salary);
+    //passing parameter
+    //@Query("?3")
+   // List<Employee> retrieveEmployeeDetailBySalary2(int salary1, int salary2, int salary3);
 
 
 
