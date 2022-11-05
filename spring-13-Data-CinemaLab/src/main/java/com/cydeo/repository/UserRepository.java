@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +24,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAllByAccountNameContaining(String name);
 
     //Write a derived query to list all users that contain a specific name in the ignore case mode?
-    List<User> findAllByNameContainingIgnoreCase(String name);
+     List<User> findAllByAccountNameContainingIgnoreCase(String name);
 
 
     //Write a derived query to list all users with an age greater than a specified age?
