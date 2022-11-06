@@ -18,9 +18,9 @@ public class ComputerTest {
 
          //crating container by using Application Context           //put bean in container--can be added more than one class
         ApplicationContext container=new AnnotationConfigApplicationContext(ComputerConfig.class, RandomConfig.class);
-        //creating container by using beanFactory
 
-        BeanFactory context=new AnnotationConfigApplicationContext();
+        //creating container by using beanFactory
+         BeanFactory context=new AnnotationConfigApplicationContext();
 
        //Monitor theMonitor = container.getBean(Monitor.class)
 
