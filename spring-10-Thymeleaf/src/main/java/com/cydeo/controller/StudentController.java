@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 //@RequestMapping("/student")//in default get() methode with spring methode=RequestMethode.GET
-@RequestMapping("/student")
+@RequestMapping("/student")//instead of rewriting for each method we put on class
 public class StudentController {
 
     //localhost:8080/student/register
