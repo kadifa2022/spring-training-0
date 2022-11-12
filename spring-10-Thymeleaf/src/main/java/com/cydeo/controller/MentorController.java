@@ -21,7 +21,7 @@ public class MentorController {
      @GetMapping("/register")
         public String register(Model model){
 
-            List<String> batchList = Arrays.asList("JD1","JD2","JD3");//created for dropDown
+            List<String> batchList = Arrays.asList("JD1","JD2","JD3");//created for dropDown box
             model.addAttribute("batchList",batchList);
 
             model.addAttribute("mentor",new Mentor());
