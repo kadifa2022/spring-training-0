@@ -32,4 +32,12 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long> {
     @Query("SELECT  c.name FROM Cinema c WHERE  c.id=?1")
     String fetchById(@Param("id")Long id);
 
+
+    //---------------------------NATIVE QUERIES------------------------//
+
+    //Write a native query to read all cinema by location country
+    @Query(value = "SELECT  * FROM cinema c JOIN locatio  l" +
+            "ON l.id = c.location_id WHERE l.country=?1", nativeQuery = true)
+    List<Cinema> retrieveAllBasedOnLocationCountry(@Param("locationCountry")String location);
+
 }
