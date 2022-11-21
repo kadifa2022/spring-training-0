@@ -2,6 +2,8 @@ package com.cydeo.repository;
 
 import com.cydeo.Entity.Cinema;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,5 +24,12 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long> {
     List<Cinema> findAllByLocationCountry(String country);
     //Write a derived query to list all cinemas with a specific name or sponsored name
     List<Cinema> findAllNameOrBySponsoredName(String name, String sponsoredName);
+
+    //------------------------JPQL QUERIES-----------------------------//
+
+    //Write a JPQL query to read a specific id
+
+    @Query("SELECT  c.name FROM Cinema c WHERE  c.id=?1")
+    String fetchById(@Param("id")Long id);
 
 }
