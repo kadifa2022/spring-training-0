@@ -46,7 +46,7 @@ public interface TicketRepository extends JpaRepository<Ticket, Long> {
             Integer countAllTicketsByUserAccount(@Param("userId") Long userId);
 
     //Write a native query to count the number of tickets a user bought in a specific range of dates
-    @Query(value = "SELECT count (*) FROM ticket WHERE user_account_id =?1 AND date_time BETWEEN ?2 NAD ?3", nativeQuery = true)
+    @Query(value = "SELECT count (*) FROM ticket WHERE user_account_id =?1 AND date_time BETWEEN ?2 AND ?3", nativeQuery = true)
     Integer countTicketByUserInDateRange(@Param("dayTime1") LocalDateTime dateTime1,
                                          @Param("dayTime2") LocalDateTime dateTime2,@Param("dayTime3") LocalDateTime dateTime3);
 
