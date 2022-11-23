@@ -50,6 +50,31 @@ public interface TicketingRepository extends JpaRepository<Ticket, Long> {
                                          @Param("dayTime2") LocalDateTime dateTime2,
                                          @Param("dayTime3") LocalDateTime dateTime3);
 
+    //Write a native query to distinct all tickets by movie name
+    @Query(value = "SELECT  DISTINCT (m.name) FROM ticket t JOIN movie_cinema mc ON mc.id=t.movie_cinema_id" +
+            "JOIN movie ON m.id=mc.movie_id",nativeQuery = true)
+    List<String> retrieveAllDistinctMovieNames();
+
+    //Write a native query to find all tickets by user email
+    @Query(value = "SELECT * FROM ticket t JOIN user_account ua ON t.user_account_id = ua.id" +
+            "WHERE ua.email =?1", nativeQuery = true)
+    List<Ticket> findAllByUserEmail(@Param("email")String email);
+
+    //Write a native query that returns all tickets
+    @Query(value="SELECT * FROM tickets", nativeQuery = true)
+    List<Ticket> retrieveAll();
+
+    //Write a native query to list all tickets where a specific value should be ->
+    // containable in the username or account name or movie name
+
+    @Query(value = "SELECT * FROM ticket t JOIN user_acccount ua ON t.user_account_id=ua.id " +
+            "JOIN account_details ad ON ad.id = ua.account_details_id " +
+            "JOIN movie_cinema mc ON mc.id = t.movie_cinema_id " +
+            "JOIN movie m ON mc.movie_id = m.id " +
+            "WHERE ua.username ILIKE concat('%',?1,'%') " +
+            "OR ad.name ILIKE concat('%', ?1, '%') " +
+            "OR m.name ILIKE concat('%', ?1, '%') ", nativeQuery = true)
+    List<Ticket> retrieveAllBySearchCriteria(@Param("searchCriteria") String searchCriteria);
 
 
 
