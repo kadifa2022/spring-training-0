@@ -52,7 +52,7 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     // Optional<Movie> retrieveByName(@Param("name") String name);
 
     //Write a native query that return the list of movies in a specific range of prices
-    @Query(value=" SELECT * FROM movie WHERW price BETWEEN ?1 and ?2", nativeQuery = true)
+    @Query(value=" SELECT * FROM movie WHERE price BETWEEN ?1 and ?2", nativeQuery = true)
     List<Movie> retrieveByPriceRange(@Param("price1") BigDecimal price1, @Param("price2") BigDecimal price2);
     //Write a native query to return all movies where duration exists in the range of duration
     @Query(value="SELECT * FROM  movie WHERE duration IN ?1", nativeQuery = true)
