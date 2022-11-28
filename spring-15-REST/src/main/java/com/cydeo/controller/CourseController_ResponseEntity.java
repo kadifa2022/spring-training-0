@@ -2,7 +2,7 @@ package com.cydeo.controller;
 
 import com.cydeo.dto.CourseDTO;
 import com.cydeo.service.CourseService;
-import jdk.jfr.Category;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,22 +19,30 @@ public class CourseController_ResponseEntity {
     }
     @GetMapping    //get the list
     public ResponseEntity<List<CourseDTO>> getAllCourses(){//generic changing status code 200,...//modifying output
-        return ResponseEntity
+        return ResponseEntity//modifying output
                 .status(HttpStatus.ACCEPTED)
-                .header("Version", "Cydeo.v2")
+                .header("Version", "Cydeo.V2")
                 .header("Operation", "Get List")
                 .body(courseService.getCourses());//list -ResponseEntity
     }
     //get one
-    @GetMapping({"{id}"})
+    @GetMapping("{id}")
     public ResponseEntity<CourseDTO> getCourseById(@PathVariable("id")long courseId){
-        return  ResponseEntity
+        return ResponseEntity
                 .ok(courseService.getCourseById(courseId)); //ok.200
 
     }
     @GetMapping("category/{name}")
     public ResponseEntity<List<CourseDTO>> getCourseCategory(@PathVariable("name") String category){
         return ResponseEntity.ok(courseService.getCoursesByCategory(category));
+    }
+    @PostMapping
+    public ResponseEntity<CourseDTO> createCourse(@RequestBody CourseDTO course){
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .header("Operation", "Create")
+                .body(courseService.createCourse(course));
+
     }
 
 }
