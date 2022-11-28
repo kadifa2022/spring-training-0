@@ -2,11 +2,12 @@ package com.cydeo.controller;
 
 import com.cydeo.dto.CourseDTO;
 import com.cydeo.service.CourseService;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController  //@controller and rest
 @RequestMapping("/courses/api/v1")//way
 public class CourseController {
     private final CourseService courseService;
@@ -17,14 +18,14 @@ public class CourseController {
 
 
     @GetMapping
-   // @ResponseBody//no view anymore
+   // @ResponseBody//no view anymore//
     public List<CourseDTO> getAllCourses(){
 
         return courseService.getCourses();
 
     }
     @GetMapping("{id}")
-    public CourseDTO GetCourseById(@PathVariable("id")long courseId){
+    public CourseDTO GetCourseById(@PathVariable("id") long courseId){
 
         return courseService.getCourseById(courseId);
 
