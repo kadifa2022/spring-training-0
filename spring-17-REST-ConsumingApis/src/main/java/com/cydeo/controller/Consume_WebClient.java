@@ -65,7 +65,7 @@ public class Consume_WebClient {
 
 //    ---------------------------WEBCLIENT---------------------------
 
-    @GetMapping("/flux")
+    @GetMapping("/flux")//flux is returning multiply elements (list)
     public Flux<MovieCinemaDTO> readWithWebClient(){
 
         return webClient
@@ -73,18 +73,18 @@ public class Consume_WebClient {
                 .uri("/flux-movie-cinemas")
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()
-                .bodyToFlux(MovieCinemaDTO.class);
+                .bodyToFlux(MovieCinemaDTO.class);//to get multiply objects-bodyToFlux
 
     }
 
-    @GetMapping("/mono/{id}")
+    @GetMapping("/mono/{id}")//mono is returning only one object
     public Mono<MovieCinemaDTO> readMonoWithWebClient(@PathVariable("id") Long id){
 
         return webClient
                 .get()
                 .uri("/mono-movie-cinema/{id}",id)
                 .retrieve()
-                .bodyToMono(MovieCinemaDTO.class);
+                .bodyToMono(MovieCinemaDTO.class);//to get one object
 
     }
 
