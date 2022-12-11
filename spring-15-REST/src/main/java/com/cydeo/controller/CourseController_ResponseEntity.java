@@ -19,7 +19,7 @@ public class CourseController_ResponseEntity {
     }
 
     @GetMapping    //get the list
-    public ResponseEntity<List<CourseDTO>> getAllCourses() {//generic changing status code 200,...//modifying output
+    public ResponseEntity<List<CourseDTO>> getAllCourses() {//generic changing status code 200->202 custom created...//modifying output
         return ResponseEntity//modifying output
                 .status(HttpStatus.ACCEPTED)
                 .header("Version", "Cydeo.V2")
