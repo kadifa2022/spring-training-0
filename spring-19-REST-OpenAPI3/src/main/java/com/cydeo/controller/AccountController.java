@@ -28,7 +28,8 @@ public class AccountController {
 
     @GetMapping("/list")
     @Operation(summary = "Read all accounts")
-    public ResponseEntity<List<AccountDTO>> getAllAccounts() {
+    public ResponseEntity<List<AccountDTO>> getAllAccounts()
+    {
         return ResponseEntity.ok(accountService.getAccounts());
     }
 
