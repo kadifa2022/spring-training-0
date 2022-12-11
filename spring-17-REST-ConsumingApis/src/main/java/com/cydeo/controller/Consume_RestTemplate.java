@@ -24,12 +24,12 @@ public class Consume_RestTemplate {
     }
 
     @GetMapping
-    public ResponseEntity<User[]>readAllUsers(){//Without DTO CLASS
+    public ResponseEntity<User[]>readAllUsers(){//if you have DTO
        return  restTemplate.getForEntity(URI, User[].class);//accepting []and output will be User[] and returning baseEntity
 
     }
     @GetMapping("{id}")
-    public Object readUser(@PathVariable("id") Integer id){
+    public Object readUser(@PathVariable("id") Integer id){//Without DTO CLASS
         String URL = URI + "/{id}";//how we gona hit the end point
         return restTemplate.getForObject(URL, Object.class,id);//give me url i give you wholeDTO class
 
