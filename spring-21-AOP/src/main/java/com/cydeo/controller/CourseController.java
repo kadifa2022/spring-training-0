@@ -1,8 +1,10 @@
 package com.cydeo.controller;
 
+import com.cydeo.annotation.LoggingAnnotation;
 import com.cydeo.dto.CourseDTO;
 import com.cydeo.service.CourseService;
 import org.springframework.web.bind.annotation.*;
+import org.w3c.dom.ranges.RangeException;
 
 import java.util.List;
 
@@ -18,10 +20,12 @@ public class CourseController {
 
     @GetMapping
     public List<CourseDTO> getAllCourses() {
-        List<CourseDTO> list = courseService.getCourses();
-        return list;
-    }
+      //  throw new RuntimeException("My Exception");
 
+       List<CourseDTO> list = courseService.getCourses();
+       return list;
+    }
+    @LoggingAnnotation
     @GetMapping("/{id}")
     public CourseDTO getCourseById(@PathVariable("id") Long courseId) {
         return courseService.getCourseById(courseId);
@@ -31,7 +35,7 @@ public class CourseController {
     public List<CourseDTO> getCourseByCategory(@PathVariable("name") String category) {
         return courseService.getCoursesByCategory(category);
     }
-
+    @LoggingAnnotation
     @PostMapping
     public CourseDTO createCourse(@RequestBody CourseDTO course) {
         return courseService.createCourse(course);
