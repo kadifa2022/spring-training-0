@@ -13,9 +13,9 @@ class CalculatorTest {//main Asserts()
         @AfterAll
         static void tearDownAll(){
             System.out.println("AfterAll is executed");
-
-
     }
+
+
 
   @BeforeEach
     void setUpEach(){
@@ -29,6 +29,7 @@ class CalculatorTest {//main Asserts()
     }
 
     @Test
+    @DisplayName("MyMethode")
     void add() {
         System.out.println("Add method");
         int actual = Calculator.add(2,3);
@@ -75,13 +76,14 @@ class CalculatorTest {//main Asserts()
 //
     }
     @Test
-    void testCase5(){
+    void testCase5() {
         System.out.println("TEST CASE 5");
+
+        Calculator c1 = new Calculator();
+        Calculator c2 = c1;
+        Calculator c3 = new Calculator();
+
+        assertSame(c1, c2);
+        assertNotSame(c1, c3);
     }
-    Calculator c1 = new Calculator();
-    Calculator c2= c1;
-    Calculator c3 = new Calculator();
-
-  //  assertSame(c1, c2);
-
 }
