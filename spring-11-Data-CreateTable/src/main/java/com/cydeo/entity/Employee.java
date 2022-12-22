@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="employees")
+@Table(name = "employees")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Employee extends BaseEntity{
