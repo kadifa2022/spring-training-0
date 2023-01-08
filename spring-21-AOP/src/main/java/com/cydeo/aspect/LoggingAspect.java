@@ -26,26 +26,26 @@ public class LoggingAspect {
 //        logger.info("Info log ..........");
 //    }
 
-//
+//    //Advice
 //    @Before("execution(* com.cydeo.controller.CourseController.*(..))")
 //    public void log() {
 //        logger.info("Info log ..........");
 //
 //    }
 //
-//    @Pointcut("execution(* com.cydeo.repository.CourseRepository.findById(*))")
-//    public void courseRepositoryFindByIdPC(){}
-//
+//    @Pointcut("execution(* com.cydeo.repository.CourseRepository.findById(*))")//for one parameter
+//    public void courseRepositoryFindByIdPC(){}//empty method
+//    //Advice
 //    @Before("courseRepositoryFindByIdPC()")
 //        public void beforeCourseRepositoryFindById(JoinPoint joinPoint){
-//        logger.info("Before -> Method: {} , Arguments: {}, Target: {}"
-//                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget());
+//        logger.info("Before -> Method: {} , Arguments: {}, Target: {}"  //curly braces are working with logger method() and {} braces will be replaced with joinPoint()
+//                , joinPoint.getSignature(), joinPoint.getArgs(), joinPoint.getTarget()); //join point  that we want see
 //
 
 //    }
 //    @Pointcut("within(com.cydeo.controller..*)")
 //    public void anyControllerOperation(){}
-//    @Pointcut("@within(org.springframework.stereotype.Service)")
+//    @Pointcut("@within(org.springframework.stereotype.Service)")//get @Service from service
 //    public void anyServiceOperation() {}
 //        @Before("anyControllerOperation() || anyServiceOperation()")
 //        public void beforeControllerOrService (JoinPoint joinPoint){
@@ -110,16 +110,16 @@ public class LoggingAspect {
     @Around ("loggingAnnotationPC()")
     public Object anyLoggingAnnotationOperation(ProceedingJoinPoint proceedingJoinPoint){
         logger.info("Before -> Method: {} - Parameter {}"
-        , proceedingJoinPoint.getSignature().toShortString(), proceedingJoinPoint.getSignature());
+        , proceedingJoinPoint.getSignature().toShortString(), proceedingJoinPoint.getArgs());
 
         Object result = null;
         try{
-            result = proceedingJoinPoint.proceed();
+            result = proceedingJoinPoint.proceed(); //this is method
 ;        }catch (Throwable throwable){
             throwable.printStackTrace();
         }
 
-        logger.info("After -. Method: {} -Result: {}"
+        logger.info("After - Method: {} - Result: {}"
         , proceedingJoinPoint.getSignature().toShortString(), result.toString());
         return result;
 
