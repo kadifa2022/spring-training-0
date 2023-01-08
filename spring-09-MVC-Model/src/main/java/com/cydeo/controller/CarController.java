@@ -25,7 +25,7 @@ public class CarController {
         return "car/car-info";
     }
     //localhost:8080/info3?make=Honda&year=2015
-    @RequestMapping("/info3") //@requestParam matching with the name
+    @RequestMapping("/info3") //@requestParam matching with the name and parameter
     public String carInfo3(@RequestParam String make,@RequestParam int year, Model model){
 
         model.addAttribute("make", make);
