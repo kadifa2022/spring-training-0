@@ -7,7 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class ComputerTest {
     public static void main(String[] args) {
-
+            //interface
         ApplicationContext container= new AnnotationConfigApplicationContext(PcConfig.class);
 
         Monitor theMonitor=container.getBean(Monitor.class);
