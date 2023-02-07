@@ -15,7 +15,7 @@ public class PcConfig {
         return new Dimensions(50,10,10);}
     //tightly coupled// Wiring not good example IoC Needs to handle this
     @Bean
-    public Case caseDell(Dimensions dimensions){ //wiring
+    public Case caseDell(Dimensions dimensions){ //wiring through methode parameter
         return new DellCase("220B","Dell", "240",dimensions);
     }
 
