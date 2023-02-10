@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class CydeoApplication {
-    public static void main(String[] args) {   //BREAK TILL 3:30 PM (4 MIN REVIEW)
+    public static void main(String[] args) {   
 
         Comment comment  = new Comment();
         comment.setAuthor("Johnson");
