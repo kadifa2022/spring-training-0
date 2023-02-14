@@ -69,9 +69,9 @@ public class DataGenerator implements CommandLineRunner {
         cartRepository.save(cart2);
        // costumerRepository.save(costumer1);
 
-        merchantRepository.save(merchant1);
+        merchantRepository.save(merchant1);//amazon
 
-        paymentRepository.save(payment1);
+        paymentRepository.save(payment1);//we can mae payment without amazon
         paymentRepository.save(payment2);
 
 
