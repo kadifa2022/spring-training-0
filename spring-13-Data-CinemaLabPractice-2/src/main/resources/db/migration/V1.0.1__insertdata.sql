@@ -89,7 +89,7 @@ INSERT INTO movie_cinema (date_time, cinema_id, movie_id) VALUES
                                                               ('2020-12-08 18:30:00', (SELECT c.id FROM cinema c WHERE c.name = 'Hall 2 - EMPIRE'), (SELECT m.id FROM movie m WHERE m.name = 'The Loss Adjuster')),
                                                               ('2020-12-08 20:30:00', (SELECT c.id FROM cinema c WHERE c.name = 'Hall 2 - EMPIRE'), (SELECT m.id FROM movie m WHERE m.name = 'The Loss Adjuster')),
                                                               ('2020-12-08 19:00:00', (SELECT c.id FROM cinema c WHERE c.name = 'Hall 3 - EMPIRE'), (SELECT m.id FROM movie m WHERE m.name = 'The Loss Adjuster')),
-                                                              ('2020-12-08 21:30:00', (SELECT c.id FROM cinema c WHERE c.name = 'Hall 3 - EMPIRE'), (SELECT m.id FROM movie m WHERE m.name = 'The Loss Adjuster')),
+                                                              ('2020movie-12-08 21:30:00', (SELECT c.id FROM cinema c WHERE c.name = 'Hall 3 - EMPIRE'), (SELECT m.id FROM movie m WHERE m.name = 'The Loss Adjuster')),
                                                               ('2020-12-08 20:00:00', (SELECT c.id FROM cinema c WHERE c.name = 'Hall 4 - EMPIRE'), (SELECT m.id FROM movie m WHERE m.name = 'The Loss Adjuster')),
                                                               ('2020-12-08 22:00:00', (SELECT c.id FROM cinema c WHERE c.name = 'Hall 4 - EMPIRE'), (SELECT m.id FROM movie m WHERE m.name = 'The Loss Adjuster'));
 
