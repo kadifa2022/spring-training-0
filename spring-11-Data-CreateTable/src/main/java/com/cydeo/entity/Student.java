@@ -7,15 +7,15 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name ="students")
+@Table(name = "students")
 public class Student {
     @Id
    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long Id;
 
-    @Column(name="studentFirstName")
+    @Column(name = "studentFirstName")
     private String firstName;
-    @Column(name="studentLastName")
+    @Column(name = "studentLastName")
     private String lastName;
 
     private String email;

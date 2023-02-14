@@ -21,7 +21,7 @@ public class Merchant {
     private BigDecimal transactionFee;
     private  BigDecimal commissionRate;
     private Integer payoutDelayCount;
-    @OneToMany(mappedBy = "merchant")    //in oneToMany relationship belong to
+    @OneToMany(mappedBy = "merchant")    //in oneToMany relationship belong to many side
     private List<Payment> paymentList;       //for relationship still complaining-more than one object(add list of payments)
 
     public Merchant(String name, String code, BigDecimal transactionFee, BigDecimal commissionRate, Integer payoutDelayCount) {
