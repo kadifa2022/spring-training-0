@@ -32,3 +32,27 @@ public class CourseController_ResponseWrapper {//
         return ResponseEntity.ok(new ResponseWrapper("course:" + courseId + "retrieved", courseService.getCourseById(courseId)));
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -21,8 +21,8 @@ public class LoggingAspect {
 //    public void myPointcut() {
 //    }
 
-//    @Before("myPointcut()")
-//    public void log() {
+//    @Before("myPointcut()")  //@before advice execute before any methode
+//    public void log() {//Log some information on console
 //        logger.info("Info log ..........");
 //    }
 
@@ -45,7 +45,7 @@ public class LoggingAspect {
 //    }
 //    @Pointcut("within(com.cydeo.controller..*)")
 //    public void anyControllerOperation(){}
-//    @Pointcut("@within(org.springframework.stereotype.Service)")//get @Service from service
+//    @Pointcut("@within(org.springframework.stereotype.Service)")//get @Service (@within) from service
 //    public void anyServiceOperation() {}
 //        @Before("anyControllerOperation() || anyServiceOperation()")
 //        public void beforeControllerOrService (JoinPoint joinPoint){
@@ -97,6 +97,7 @@ public class LoggingAspect {
 
 //    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
 //    public void afterReturningGetMappingAnnotation(){}
+
 //    @AfterThrowing(pointcut = "afterReturningGetMappingAnnotation()", throwing = "exception")
 //    public void afterThrowingGetMappingOperation(JoinPoint joinPoint,RuntimeException exception){
 //        logger.error("After Throwing  -> Method: {}, Exception: {}"
@@ -104,11 +105,11 @@ public class LoggingAspect {
 //    }
 
 
-    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")
+    @Pointcut("@annotation(com.cydeo.annotation.LoggingAnnotation)")//costume annotation
     public void loggingAnnotationPC(){}
 
-    @Around ("loggingAnnotationPC()")
-    public Object anyLoggingAnnotationOperation(ProceedingJoinPoint proceedingJoinPoint){
+    @Around ("loggingAnnotationPC()")//point cut name
+    public Object anyLoggingAnnotationOperation(ProceedingJoinPoint proceedingJoinPoint){//first parameter before
         logger.info("Before -> Method: {} - Parameter {}"
         , proceedingJoinPoint.getSignature().toShortString(), proceedingJoinPoint.getArgs());
 
@@ -120,7 +121,7 @@ public class LoggingAspect {
         }
 
         logger.info("After - Method: {} - Result: {}"
-        , proceedingJoinPoint.getSignature().toShortString(), result.toString());
+        , proceedingJoinPoint.getSignature().toShortString(), result.toString());//after
         return result;
 
 
