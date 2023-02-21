@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 public class Consume_WebClient {
-    private WebClient webClient = WebClient.builder().baseUrl("http://localhost:8080").build();//consuming my own api
+    private WebClient webClient = WebClient.builder().baseUrl("http://localhost:8080").build();//want to consume my own api
 
     private final MovieCinemaService movieCinemaService;
     private final GenreService genreService;
@@ -23,9 +23,9 @@ public class Consume_WebClient {
         this.movieCinemaService = movieCinemaService;
         this.genreService = genreService;
     }
-
-    @GetMapping("/flux-movie-cinemas")
-    public Flux<MovieCinemaDTO> readAllCinemaFlux(){
+     //creating Api's with reactive way
+    @GetMapping("/flux-movie-cinemas")//
+    public Flux<MovieCinemaDTO> readAllCinemaFlux(){//returning more than one
 
         return Flux.fromIterable(movieCinemaService.findAll());
 
@@ -39,7 +39,7 @@ public class Consume_WebClient {
 //    }
 
     @GetMapping("/mono-movie-cinema/{id}")
-    public ResponseEntity<Mono<MovieCinemaDTO>> readById(@PathVariable("id") Long id){
+    public ResponseEntity<Mono<MovieCinemaDTO>> readById(@PathVariable("id") Long id){//returning one object
 
         return ResponseEntity.ok(Mono.just(movieCinemaService.findById(id)));
 
