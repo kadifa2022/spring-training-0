@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController  //@controller and @ResponseBody
-@RequestMapping("/courses/api/v1")//way
+@RequestMapping("/courses/api/v1")//best practice to create endpoints
 public class CourseController {
     private final CourseService courseService;
 

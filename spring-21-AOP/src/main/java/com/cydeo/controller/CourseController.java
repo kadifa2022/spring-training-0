@@ -25,7 +25,7 @@ public class CourseController {
        List<CourseDTO> list = courseService.getCourses();
        return list;
     }
-    @LoggingAnnotation
+    @LoggingAnnotation//AOP
     @GetMapping("/{id}")
     public CourseDTO getCourseById(@PathVariable("id") Long courseId) {
         return courseService.getCourseById(courseId);
