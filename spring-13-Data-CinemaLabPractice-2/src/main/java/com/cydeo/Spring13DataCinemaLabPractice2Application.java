@@ -14,9 +14,9 @@ public class Spring13DataCinemaLabPractice2Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Spring13DataCinemaLabPractice2Application.class, args);
 	}
-		@Bean
-		public MigrateResult migrateResult (DataSource dataSource){
-			return Flyway.configure().baselineOnMigrate(true).dataSource(dataSource).load().migrate();
-		}
+//		@Bean
+//		public MigrateResult migrateResult (DataSource dataSource){
+//			return Flyway.configure().baselineOnMigrate(true).dataSource(dataSource).load().migrate();
+//		}
 
 	}
