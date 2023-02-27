@@ -29,7 +29,7 @@ class CalculatorTest {//main Asserts()
     }
 
     @Test
-    @DisplayName("MyMethode")
+    @DisplayName("MyMethod")
     void add() {
         System.out.println("Add method");
         int actual = Calculator.add(2,3);
@@ -86,4 +86,6 @@ class CalculatorTest {//main Asserts()
         assertSame(c1, c2);
         assertNotSame(c1, c3);
     }
+
+    //maven-surefire-plugin
 }
