@@ -13,7 +13,7 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME") //change name to upper letter
     private String name;
     @Column(name = "CATEGORY")
     private String category;
