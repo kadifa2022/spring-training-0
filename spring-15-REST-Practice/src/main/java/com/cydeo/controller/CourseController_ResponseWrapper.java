@@ -20,13 +20,14 @@ public class CourseController_ResponseWrapper {//
     }
 
 
-    @GetMapping              //whatever we input we will in <ResponseWrapper>
+    @GetMapping              //whatever we input we will in <ResponseWrapper> we will see in the body
     public ResponseEntity<ResponseWrapper> getAllCourses(){
-        return ResponseEntity
-                .status(HttpStatus.ACCEPTED)
-                .header("Version", "Cydeo.V3")
-                .body(new ResponseWrapper("courses successfully retrieved", courseService.getCourses()));
+        return ResponseEntity.status(HttpStatus.ACCEPTED)
+                .header("Version" , "Cydeo.V3")
+                .body(new ResponseWrapper("Courses successfully retrieved", courseService.getCourses()));
     }
+
+
     @GetMapping("{id}")
     public ResponseEntity<ResponseWrapper> getCourseById(@PathVariable("id") long courseId){
         return ResponseEntity.ok(new ResponseWrapper("course:" + courseId + "retrieved", courseService.getCourseById(courseId)));
