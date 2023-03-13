@@ -45,7 +45,7 @@ public class CourseController_ResponseEntity {
                 .header("Operation", "Create")
                 .body(courseService.createCourse(course));
     }
-    @DeleteMapping("{id}")
+    @DeleteMapping("{id}")//can be also CourseDTO instead Void
     public ResponseEntity<Void> deleteCourseById(@PathVariable("id") Long courseId){
         courseService.deleteCourseById(courseId);
         return ResponseEntity.noContent().build();
