@@ -14,11 +14,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import static org.junit.jupiter.api.Assertions.*;                                    //import all method
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;   //all method Matchers
 
-@WebMvcTest(WelcomeController.class)
+@WebMvcTest(WelcomeController.class)//
 public class WelcomeControllerTest {
 
     @Autowired
-    private MockMvc mvc;    //because is not real test /we are using bean and autowire
+    private MockMvc mvc;    //because is not real test /we are using bean and autowire (we dot use constructor auto wire)
 
 
     @Test
