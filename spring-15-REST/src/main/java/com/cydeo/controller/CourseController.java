@@ -25,7 +25,7 @@ public class CourseController {
 
     }
     @GetMapping("{id}")
-    public CourseDTO GetCourseById(@PathVariable("id") long courseId){
+    public CourseDTO GetCourseById(@PathVariable("id") Long  courseId){
 
         return courseService.getCourseById(courseId);
 
@@ -40,13 +40,13 @@ public class CourseController {
 
     }
     @PutMapping("{id}")
-    public void updateCourse(@PathVariable("id") long courseId,@RequestBody CourseDTO course ){
+    public void updateCourse(@PathVariable("id")Long courseId,@RequestBody CourseDTO course ){
         courseService.updateCourse(courseId, course);
 
 
     }
     @DeleteMapping("{id}")
-    public void deleteCourseById(@PathVariable("id") long courseId) {
+    public void deleteCourseById(@PathVariable("id") Long courseId) {
         courseService.deleteCourseById(courseId);
 
     }
