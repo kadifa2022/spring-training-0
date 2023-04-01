@@ -28,7 +28,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public CourseDTO getCourseById(long courseId) {
+    public CourseDTO getCourseById(Long courseId) {
         Course course = courseRepository.findById(courseId).get();
         return mapperUtil.convert(course, new CourseDTO());
     }
@@ -67,7 +67,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public void deleteCourseById(long courseId) {
+    public void deleteCourseById(Long courseId) {
         courseRepository.deleteById(courseId);
     }
 
