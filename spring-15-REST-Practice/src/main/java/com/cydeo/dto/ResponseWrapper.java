@@ -14,14 +14,16 @@ public class ResponseWrapper {//we are customized JSON output with responseWrapp
     private Integer code;
     private Object data; // can be any dto
 
-    public ResponseWrapper(String message, Object data){
+    public ResponseWrapper(String message, Object data){//constructor
         this.message=message;
         this.data=data;
         this.code= HttpStatus.OK.value();
         this.success=true;
 
     }
-    public ResponseWrapper(String message){//if we delete something we can't see data thats why we create two cunstructors
+    public ResponseWrapper(String message){// why we create two constructors?
+        // if we delete something we can see data
+
         this.message=message;
         this.code=HttpStatus.OK.value();
         this.success=true;
