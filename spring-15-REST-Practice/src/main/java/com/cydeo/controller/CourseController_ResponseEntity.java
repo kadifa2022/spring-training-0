@@ -21,7 +21,7 @@ public class CourseController_ResponseEntity {
     @GetMapping    //get the list -responseEntity class is from Spring framework
     public ResponseEntity<List<CourseDTO>> getAllCourses() {//generic changing status code 200->202 custom created...//modifying output
         return ResponseEntity//modifying output
-                .status(HttpStatus.ACCEPTED)
+                .status(HttpStatus.ACCEPTED)//change status code  202
                 .header("Version", "Cydeo.V2")//we can pass more than one header
                 .header("Operation", "Get List")
                 .body(courseService.getCourses());//DATA is coming with body returning list -ResponseEntity
@@ -29,12 +29,13 @@ public class CourseController_ResponseEntity {
 
     //get one
     @GetMapping("{id}")
-    public ResponseEntity<CourseDTO> getCourseById(@PathVariable("id") Long courseId) {
+    public ResponseEntity<CourseDTO> getCourseById(@PathVariable("id") Long courseId){
         return ResponseEntity.ok(courseService.getCourseById(courseId));
+
     }
 
-    @GetMapping("category/{name}")
-    public ResponseEntity<List<CourseDTO>> getCourseByCategory(@PathVariable("name") String category) {
+    @GetMapping("/category/{name}")
+    public ResponseEntity<List<CourseDTO>> getCourseByCategory(@PathVariable("name")String category){
         return ResponseEntity.ok(courseService.getCoursesByCategory(category));
     }
 

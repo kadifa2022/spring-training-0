@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class CourseController_ResponseWrapper {//
 
 
-   private final CourseService courseService;
+   private final CourseService courseService;//
 
     public CourseController_ResponseWrapper(CourseService courseService) {
         this.courseService = courseService;
     }
 
-
-    @GetMapping              //whatever we input we will in <ResponseWrapper> we will see in the body
+    @GetMapping    //whatever we input we will in <ResponseWrapper> we will see in the postman as JSON
     public ResponseEntity<ResponseWrapper> getAllCourses(){
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .header("Version" , "Cydeo.V3")
@@ -29,7 +28,8 @@ public class CourseController_ResponseWrapper {//
 
     @GetMapping("{id}")
     public ResponseEntity<ResponseWrapper> getCourseById(@PathVariable("id") Long courseId){
-        return ResponseEntity.ok(new ResponseWrapper("course:" + courseId + "retrieved", courseService.getCourseById(courseId)));
+        return ResponseEntity
+                .ok(new ResponseWrapper("course:" + courseId + "retrieved", courseService.getCourseById(courseId)));
     }
     @GetMapping("category/{name}")
     public ResponseEntity<ResponseWrapper> getCourseByCategory(@PathVariable("name")String category){
